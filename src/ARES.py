@@ -55,11 +55,11 @@ class ARES:
             print(f'Done! Result saved in {self.kwargs.get("fileout", "aresout.dat")}')
 
     @staticmethod
-    def read_output(fname: str):
+    def read_output(fname):
         return ARESOutput(fname)
 
     @staticmethod
-    def get_rv(fname: str='logARES.txt') -> float:
+    def get_rv(fname='logARES.txt'):
         with open(fname, 'r') as lines:
             for line in lines:
                 if line.startswith('Velocidade radial'):
@@ -73,6 +73,7 @@ class ARESOutput:
         self.fname = fname
         self.df = pd.read_csv(self.fname, sep=r'\s+', header=None)
         self.df.columns = _COLS
+        # df.set_index('wavelength', inplace=True)
 
     def percent_diff(self, other, col):
         """Find the percent difference between two ARES output for a given column.
@@ -151,9 +152,3 @@ if __name__ == "__main__":
                           'smoothder': smoothder,
                           'space': space}
                 output = get_result(**config)
-                
-
-    output_espresso = get_result(**{'fileout': '../data/ARES/ESPRESSO/sun/smooth5_space3.2.ares'})
-    output_pepsi = get_result(**{'fileout': '../data/ARES/PEPSI/sun/smooth5_space3.2.ares'})
-
-    mse_EW = output_espresso.mse(output_pepsi, 'EW')
