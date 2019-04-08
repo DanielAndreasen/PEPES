@@ -1,0 +1,10 @@
+*.fits
+.vscode
+venv/
+daniel.zip
+daniel/
+__pycache__/
+.envrc
+*.code-workspace
+logARES.txt
+*.ares

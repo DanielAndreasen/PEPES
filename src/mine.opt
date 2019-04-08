@@ -1,0 +1,12 @@
+specfits='../daniel/sun_pepsi_1d_rv.fits'
+readlinedat='../daniel/linelist_damp.rdb'
+fileout='../data/ARES/PEPSI/sun/smooth5_space3.2.ares'
+lambdai=3000
+lambdaf=8000
+smoothder=5
+space=3.2
+rejt=3;5764,5766,6047,6052,6068,6076
+lineresol=0.05
+miniline=2
+plots_flag=0
+rvmask='3,6021.8,6024.06,6027.06,6024.06,20'
