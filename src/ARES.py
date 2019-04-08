@@ -145,11 +145,13 @@ if __name__ == "__main__":
     for spectrum in spectra:
        for smoothder in smoothders:
            for space in spaces:
-               config = {'specfits': spectrum,
-                         'readlinedat': '../daniel/linelist_damp.rdb',
-                         'fileout': create_fname(spectrum, smoothder, space),
-                         'smoothder': smoothder,
-                         'space': space}
+                config = {'specfits': spectrum,
+                          'readlinedat': '../daniel/linelist_damp.rdb',
+                          'fileout': create_fname(spectrum, smoothder, space),
+                          'smoothder': smoothder,
+                          'space': space}
+                output = get_result(**config)
+                
 
     output_espresso = get_result(**{'fileout': '../data/ARES/ESPRESSO/sun/smooth5_space3.2.ares'})
     output_pepsi = get_result(**{'fileout': '../data/ARES/PEPSI/sun/smooth5_space3.2.ares'})
